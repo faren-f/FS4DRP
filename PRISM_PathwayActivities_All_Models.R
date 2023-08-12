@@ -1,0 +1,52 @@
+rm(list=ls())
+
+library(caTools)
+source("Functions/F1-Ridge.R")
+source("Functions/F2-MLP.R")
+source("Functions/F3-RandomForest.R")
+source("Functions/F4-ENet.R")
+source("Functions/F5-Lasso.R")
+
+sen = readRDS("Data/sensitivity_matrix_AUC.rds")
+pw_act_X = readRDS("Data/pw_act_GE.rds")
+
+Models = c("RandomForest","ElasticNet", "Lasso","Ridge","MLP")
+
+Result = c()
+for (i in 1:ncol(sen)){            # drug loop
+  print(paste0("The drug number is: ", as.character(i)))
+  Mean_Corr = c()
+  
+  for (M in Models){             # model loop
+    model = get(M)
+    Corr = c()
+    
+    for (j in 1:100){           # repeat loop
+      print(paste0("The repeat number is: ", as.character(j)))
+      
+      X = pw_act_X[!is.na(sen[,i]),]
+      y = sen[!is.na(sen[,i]),i]
+      
+      # normalization
+      y = scale(y)
+      y = y[,1]
+      
+      sample = sample.split(y, SplitRatio = .8)
+      
+      Xtrain = subset(X, sample == TRUE)
+      Xtest  = subset(X, sample == FALSE)
+      ytrain = subset(y, sample == TRUE)
+      ytest  = subset(y, sample == FALSE)
+      
+      # Models
+      y_pred = model(ytrain = ytrain, Xtrain = Xtrain, Xtest = Xtest)
+      
+      # Evaluation
+      corr = cor(ytest,y_pred)
+      Corr = c(Corr, corr)
+    }
+    Mean_Corr = c(Mean_Corr, mean(Corr))
+  }
+  
+  Result = rbind(Result, Mean_Corr)
+}
