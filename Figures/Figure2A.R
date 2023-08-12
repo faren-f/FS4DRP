@@ -1,20 +1,19 @@
 rm(list=ls())
 library(ggplot2)
 
-setwd("~/Desktop/Cancer_DRP/R/Prepare_Data/")
-sen = readRDS("Processed_data/S1/sensitivity_matrix_AUC.rds")
-GE = readRDS("Processed_data/S1/expresion_matrix.rds")
+sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+GE = readRDS("../Data/expresion_matrix.rds")
 N_drugs = 1448
 
 #Landmark
-l1000_genes = readRDS("Processed_Data/S18/Landmark_genes.rds")
+l1000_genes = readRDS("../Data/Landmark_genes.rds")
 
 #TF activity
-TF = read.table("Processed_from_Python/TF_gsea2_PRISM/TF_gsea2_PRISM.csv",
+TF = read.table("../Data/TF_gsea_PRISM.csv",
                 sep = ",",header = TRUE, row.names = 1)
 
-# Progeny
-PA = readRDS("Processed_data/Other/pw_act_GE.rds")
+# Pathway activity
+PA = readRDS("Processed_data/Other/PW_activity.rds")
 
 #PW
 #Read Drug Pathway results
@@ -22,7 +21,7 @@ Ridge_PW = c()
 I_zeros = c()
 for(i in 1:N_drugs){
   print(i)
-  R_PW = readRDS(paste0("Processed_from_SLURM/Results_DrugPathways_All_Models/Result_",as.character(i),".rds"))
+  R_PW = readRDS(paste0("../Data/Result_",as.character(i),".rds"))
   if(is.null(nrow(R_PW))){
     I_zeros = c(I_zeros,i)
   }else{
