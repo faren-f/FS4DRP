@@ -31,7 +31,7 @@ MLP_WG = c()
 
 for(i in 1:N_drugs){
   print(i)
-  R_WG = readRDS(paste0("Processed_from_SLURM/Results_WholeGenes_All_Models/Result_",as.character(i),".rds"))
+  R_WG = readRDS(paste0("../Data/Results_AllGenes_All_Models/Result_",as.character(i),".rds"))
   Ridge_WG = rbind(Ridge_WG, R_WG[4,])
   MLP_WG = rbind(MLP_WG, R_WG[5,])
   Lasso_WG = rbind(Lasso_WG, R_WG[3,])
@@ -48,7 +48,7 @@ MLP_PW = c()
 I_zeros = c()
 for(i in 1:N_drugs){
   print(i)
-  R_PW = readRDS(paste0("Processed_from_SLURM/Results_DrugPathways_All_Models/Result_",as.character(i),".rds"))
+  R_PW = readRDS(paste0("../Data/Results_DrugPathways_All_Models/Result_",as.character(i),".rds"))
   if(is.null(nrow(R_PW))){
     I_zeros = c(I_zeros,i)
   }else{
@@ -69,8 +69,8 @@ MLP_PA = c()
 I = c()
 for(i in 1:N_drugs){
   print(i)
-  if(file.exists(paste0("Processed_from_SLURM/Results_Progeny_Pathway_Activities_All_Models/Result_",as.character(i),".rds"))){
-    R_PA = readRDS(paste0("Processed_from_SLURM/Results_Progeny_Pathway_Activities_All_Models/Result_",as.character(i),".rds"))
+  if(file.exists(paste0("../Data/Results_Pathway_Activities_All_Models/Result_",as.character(i),".rds"))){
+    R_PA = readRDS(paste0("../Data/Results_Pathway_Activities_All_Models/Result_",as.character(i),".rds"))
     Ridge_PA = rbind(Ridge_PA, R_PA[4,])
     MLP_PA = rbind(MLP_PA, R_PA[5,])
     Lasso_PA = rbind(Lasso_PA, R_PA[3,])
@@ -91,7 +91,7 @@ MLP_TF = c()
 
 for(i in 1:N_drugs){
   print(i)
-  R_TF = readRDS(paste0("Processed_from_SLURM/Results_decoupleR_TF_Activities_All_Models/Result_",as.character(i),".rds"))
+  R_TF = readRDS(paste0("../Data/Results_TF_Activities_All_Models/Result_",as.character(i),".rds"))
   Ridge_TF = rbind(Ridge_TF, R_TF[4,])
   MLP_TF = rbind(MLP_TF, R_TF[5,])
   Lasso_TF = rbind(Lasso_TF, R_TF[3,])

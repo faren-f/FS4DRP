@@ -1,15 +1,15 @@
 rm(list=ls())
 
 library(caTools)
-source("Functions/F1-Ridge.R")
-source("Functions/F2-MLP.R")
-source("Functions/F3-RandomForest.R")
-source("Functions/F4-ENet.R")
-source("Functions/F5-Lasso.R")
-source("Functions/F6-Drug_Pathway_Level_genes.R")
+source("../Functions/F1-Ridge.R")
+source("../Functions/F2-MLP.R")
+source("../Functions/F3-RandomForest.R")
+source("../Functions/F4-ENet.R")
+source("../Functions/F5-Lasso.R")
+source("../Functions/F6-Drug_Pathway_Level_genes.R")
 
-sen = readRDS("Data/sensitivity_matrix_AUC.rds")
-GE = readRDS("Data/expresion_matrix.rds")
+sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+GE = readRDS("../Data/expresion_matrix.rds")
 
 Models = c("RandomForest","ElasticNet", "Lasso","Ridge","MLP")
 

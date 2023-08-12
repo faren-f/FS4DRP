@@ -4,11 +4,11 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("Data/Sen_PRISM.rds")
-res_TCGA = readRDS("Data/Res_TCGA.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
-GE_PRISM = readRDS("Data/expresion_matrix.rds")
-GE_TCGA = readRDS("Data/expresion_matrix_TCGA.rds")
+GE_PRISM = readRDS("../Data/expresion_matrix.rds")
+GE_TCGA = readRDS("../Data/expresion_matrix_TCGA.rds")
 
 # Remove genes whose Q3 is zero
 q3_genes = apply(GE_TCGA,2,quantile,prob=0.75)
@@ -74,8 +74,8 @@ for (k in 1:N_drug){
 
 stopCluster(cl)
 
-saveRDS(Result[,1], "Landmark_RF.rds")
-saveRDS(Result[,2], "Landmark_ENet.rds")
-saveRDS(Result[,3], "Landmark_Lasso.rds")
-saveRDS(Result[,4], "Landmark_Ridge.rds")
-saveRDS(Result[,5], "Landmark_MLP.rds")
+saveRDS(Result[,1], "../Data/Landmark_RF.rds")
+saveRDS(Result[,2], "../Data/Landmark_ENet.rds")
+saveRDS(Result[,3], "../Data/Landmark_Lasso.rds")
+saveRDS(Result[,4], "../Data/Landmark_Ridge.rds")
+saveRDS(Result[,5], "../Data/Landmark_MLP.rds")

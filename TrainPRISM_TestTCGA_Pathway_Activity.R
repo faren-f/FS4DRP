@@ -4,11 +4,11 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("Data/Sen_PRISM.rds")
-res_TCGA = readRDS("Data/Res_TCGA.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
-GE_PRISM = readRDS("Data/expresion_matrix.rds")
-GE_TCGA = readRDS("Data/expresion_matrix_TCGA.rds")
+GE_PRISM = readRDS("../Data/expresion_matrix.rds")
+GE_TCGA = readRDS("../Data/expresion_matrix_TCGA.rds")
 
 # Remove genes whose Q3 is zero
 q3_genes = apply(GE_TCGA,2,quantile,prob=0.75)
@@ -84,9 +84,9 @@ for(m in 1:N_Models){
 
 stopCluster(cl)
 
-saveRDS(Result[,1], "Pathway_activity_RF.rds")
-saveRDS(Result[,2], "Pathway_activity_ENet.rds")
-saveRDS(Result[,3], "Pathway_activity_Lasso.rds")
-saveRDS(Result[,4], "Pathway_activity_Ridge.rds")
-saveRDS(Result[,5], "Pathway_activity_MLP.rds")
+saveRDS(Result[,1], "../Data/Pathway_activity_RF.rds")
+saveRDS(Result[,2], "../Data/Pathway_activity_ENet.rds")
+saveRDS(Result[,3], "../Data/Pathway_activity_Lasso.rds")
+saveRDS(Result[,4], "../Data/Pathway_activity_Ridge.rds")
+saveRDS(Result[,5], "../Data/Pathway_activity_MLP.rds")
 

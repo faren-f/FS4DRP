@@ -4,11 +4,11 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("Data/Sen_PRISM.rds")
-res_TCGA = readRDS("Data/Res_TCGA.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
-GE_PRISM = readRDS("Data/expresion_matrix.rds")
-GE_TCGA = readRDS("Data/expresion_matrix_TCGA.rds")
+GE_PRISM = readRDS("../Data/expresion_matrix.rds")
+GE_TCGA = readRDS("../Data/expresion_matrix_TCGA.rds")
 
 # Remove genes whose Q3 is zero
 q3_genes = apply(GE_TCGA,2,quantile,prob=0.75)
@@ -72,8 +72,8 @@ for (k in 1:N_drug){
   Result = rbind(Result, result[[k]])
 }
 
-saveRDS(Result[,1], "all_genes_RF.rds")
-saveRDS(Result[,2], "all_genes_ENet.rds")
-saveRDS(Result[,3], "all_genes_Lasso.rds")
-saveRDS(Result[,4], "all_genes_Ridge.rds")
-saveRDS(Result[,5], "all_genes_MLP.rds")
+saveRDS(Result[,1], "../Data/all_genes_RF.rds")
+saveRDS(Result[,2], "../Data/all_genes_ENet.rds")
+saveRDS(Result[,3], "../Data/all_genes_Lasso.rds")
+saveRDS(Result[,4], "../Data/all_genes_Ridge.rds")
+saveRDS(Result[,5], "../Data/all_genes_MLP.rds")

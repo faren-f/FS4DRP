@@ -4,11 +4,11 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("Data/Sen_PRISM.rds")
-res_TCGA = readRDS("Data/Res_TCGA.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
-GE_PRISM = readRDS("Data/expresion_matrix.rds")
-GE_TCGA = readRDS("Data/expresion_matrix_TCGA.rds")
+GE_PRISM = readRDS("../Data/expresion_matrix.rds")
+GE_TCGA = readRDS("../Data/expresion_matrix_TCGA.rds")
 
 # Remove genes whose Q3 is zero
 q3_genes = apply(GE_TCGA,2,quantile,prob=0.75)
@@ -101,9 +101,9 @@ for (k in drugs){
 
 stopCluster(cl)
 
-saveRDS(Result[,1], "Drug_Pathway_genes_RF.rds")
-saveRDS(Result[,2], "Drug_Pathway_genes_ENet.rds")
-saveRDS(Result[,3], "Drug_Pathway_genes_Lasso.rds")
-saveRDS(Result[,4], "Drug_Pathway_genes_Ridge.rds")
-saveRDS(Result[,5], "Drug_Pathway_genes_MLP.rds")
+saveRDS(Result[,1], "../Data/Drug_Pathway_genes_RF.rds")
+saveRDS(Result[,2], "../Data/Drug_Pathway_genes_ENet.rds")
+saveRDS(Result[,3], "../Data/Drug_Pathway_genes_Lasso.rds")
+saveRDS(Result[,4], "../Data/Drug_Pathway_genes_Ridge.rds")
+saveRDS(Result[,5], "../Data/Drug_Pathway_genes_MLP.rds")
 

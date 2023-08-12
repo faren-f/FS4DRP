@@ -4,11 +4,11 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("Data/Sen_PRISM.rds")
-res_TCGA = readRDS("Data/Res_TCGA.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
-dR_PRISM = read.table("Dara/gsea_PRISM.csv",sep = ",",header = TRUE, row.names = 1)
-dR_TCGA = read.table("Data/gsea_TCGA.csv",sep = ",",header = TRUE, row.names = 1)
+dR_PRISM = read.table("../Dara/gsea_PRISM.csv",sep = ",",header = TRUE, row.names = 1)
+dR_TCGA = read.table("../Data/gsea_TCGA.csv",sep = ",",header = TRUE, row.names = 1)
 
 # Remove genes whose Q3 is zero
 q3_genes = apply(dR_TCGA,2,quantile,prob=0.75)
@@ -78,10 +78,10 @@ for(m in 1:N_Models){
 
 stopCluster(cl)
 
-saveRDS(Result[,1], "TF_activity_RF.rds")
-saveRDS(Result[,2], "TF_activity_ENet.rds")
-saveRDS(Result[,3], "TF_activity_Lasso.rds")
-saveRDS(Result[,4], "TF_activity_Ridge.rds")
-saveRDS(Result[,5], "TF_activity_MLP.rds")
+saveRDS(Result[,1], "../Data/TF_activity_RF.rds")
+saveRDS(Result[,2], "../Data/TF_activity_ENet.rds")
+saveRDS(Result[,3], "../Data/TF_activity_Lasso.rds")
+saveRDS(Result[,4], "../Data/TF_activity_Ridge.rds")
+saveRDS(Result[,5], "../Data/TF_activity_MLP.rds")
 
 

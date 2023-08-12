@@ -1,14 +1,14 @@
 rm(list=ls())
 
 library(caTools)
-source("Functions/F1-Ridge.R")
-source("Functions/F2-MLP.R")
-source("Functions/F3-RandomForest.R")
-source("Functions/F4-ENet.R")
-source("Functions/F5-Lasso.R")
+source("../Functions/F1-Ridge.R")
+source("../Functions/F2-MLP.R")
+source("../Functions/F3-RandomForest.R")
+source("../Functions/F4-ENet.R")
+source("../Functions/F5-Lasso.R")
 
-sen = readRDS("Data/sensitivity_matrix_AUC.rds")
-TF = read.table("Data/TF_gsea_PRISM.csv", sep = ",",header = TRUE, row.names = 1)
+sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+TF = read.table("../Data/TF_gsea_PRISM.csv", sep = ",",header = TRUE, row.names = 1)
 
 Models = c("RandomForest", "ElasticNet", "Lasso", "Ridge", "MLP")
 Result = c()

@@ -21,7 +21,7 @@ Ridge_PW = c()
 I_zeros = c()
 for(i in 1:N_drugs){
   print(i)
-  R_PW = readRDS(paste0("../Data/Result_",as.character(i),".rds"))
+  R_PW = readRDS(paste0("../Data/Results_DrugPathways_All_Models/Result_",as.character(i),".rds"))
   if(is.null(nrow(R_PW))){
     I_zeros = c(I_zeros,i)
   }else{

@@ -1,12 +1,12 @@
 import decoupler as dc
 import os
-os.chdir("Desktop/Cancer_DRP/Python/Read-TF_dR")
+os.chdir("../Data/Read-TF_dR")
 import pandas as pd
 
 dorothea = dc.get_dorothea(organism='human', levels=['A','B','C'])
 
 
-path_GE = '~/Data/expresion_matrix.csv'
+path_GE = '../Data/expresion_matrix.csv'
 
 GE = pd.read_csv(path_GE, sep = ',', header = 0, index_col=0)
 GE.head()
