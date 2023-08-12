@@ -13,7 +13,7 @@ TF = read.table("../Data/TF_gsea_PRISM.csv",
                 sep = ",",header = TRUE, row.names = 1)
 
 # Pathway activity
-PA = readRDS("Processed_data/Other/PW_activity.rds")
+PA = readRDS("../Data/PW_activity.rds")
 
 #PW
 #Read Drug Pathway results
