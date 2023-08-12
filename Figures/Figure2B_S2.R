@@ -1,8 +1,8 @@
 rm(list=ls())
 
 library(ggplot2)
-setwd("~/Desktop/Cancer_DRP/R/Prepare_Data/")
-sen = readRDS("Processed_data/S1/sensitivity_matrix_AUC.rds")
+
+sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
 N_drugs = 1448
 
 #Read Landmark results
@@ -14,7 +14,7 @@ MLP_Landmark = c()
 
 for(i in 1:N_drugs){
   print(i)
-  R_Landmark = readRDS(paste0("Processed_from_SLURM/Results_Landmark_All_Models/Result_",as.character(i),".rds"))
+  R_Landmark = readRDS(paste0("../Data/Results_Landmark_All_Models/Result_",as.character(i),".rds"))
   Ridge_Landmark = rbind(Ridge_Landmark, R_Landmark[4,])
   MLP_Landmark = rbind(MLP_Landmark, R_Landmark[5,])
   Lasso_Landmark = rbind(Lasso_Landmark, R_Landmark[3,])
