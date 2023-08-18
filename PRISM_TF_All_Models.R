@@ -27,17 +27,27 @@ for (i in 1:ncol(sen)){            # drug loop
       X = TF[!is.na(sen[,i]),]
       y = sen[!is.na(sen[,i]),i]
       
-      # normalization
-      X = scale(X)
-      y = scale(y)
-      y = y[,1]
-      
       sample = sample.split(y, SplitRatio = .8)
       
       Xtrain = subset(X, sample == TRUE)
       Xtest  = subset(X, sample == FALSE)
       ytrain = subset(y, sample == TRUE)
       ytest  = subset(y, sample == FALSE)
+      
+      # Normalization
+      Mu = apply(Xtrain, 2, mean)
+      SD = apply(Xtrain, 2, sd)
+      Xtrain = scale(Xtrain)
+      
+      for(t in 1:ncol(Xtest)){
+        Xtest[,t] = (Xtest[,t] - Mu[t]) / SD[t]
+      }
+      
+      Mu_y = mean(ytrain)
+      SD_y = sd(ytrain)
+      ytrain = scale(ytrain)
+      ytest = (ytest-Mu_y)/SD_y
+      
       
       # Models
       y_pred = model(ytrain = ytrain, Xtrain = Xtrain, Xtest = Xtest)
