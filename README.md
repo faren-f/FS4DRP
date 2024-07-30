@@ -21,14 +21,16 @@ In *Python*
 ### Run pipeline:
 
 In this work, we compare four different feature selection methods including
-1. 
+
+1. k
 2.
 3.
 4.
 
 together with five ML models including
-1.
-2.
+
+1. Ridge regression
+2. Lasso regression
 3.
 4.
 5.
