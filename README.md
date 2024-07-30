@@ -19,14 +19,12 @@ reactome.db(1.86.2)
 sva(3.50.0)
 caTools(1.18.2)
 parallel(4.3.2)
-
 ```
 In *Python*
 
 ```
 decoupler
 pandas
-
 ```
 
 ### Run pipeline:
