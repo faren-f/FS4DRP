@@ -31,9 +31,9 @@ together with five ML models including
 
 1. Ridge regression
 2. Lasso regression
-3.
-4.
-5.
+3. Elastic net
+4. Random forest
+5. Multilayer perceptron
 
 Our analysis consists of two scenarios:
 
