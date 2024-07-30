@@ -37,5 +37,9 @@ Our analysis consists of two scenarios:
 
 **1. Cross-validation on cell lines.** In this scenario, train and test sets for ML models are obtained from cell line data (PRISM dataset) using cross-validation. The script names for this analysis follow the pattern ```PRISM_{feature_selection_method}```.
 
-**2. Validation on tumour samples.**
+**2. Validation on tumour samples.** In this scenario, train and test sets for ML models are obtained from cell line data (PRISM dataset) and tumor data (TCGA dataset), respectively. The script names for this analysis follow the pattern ```TrainPRISM_TestTCGA_{feature_selection_method}```.
+
+
+
+
 
