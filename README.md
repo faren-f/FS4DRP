@@ -1,4 +1,4 @@
-# A comparative analysis of feature reduction methods for drug response prediction
+# Comparative evaluation of knowledge-based feature reduction methods for drug response prediction
 
 Personalized medicine aims to tailor medical treatments to individual patients, and predicting drug responses from molecular profiles using machine learning (ML) is crucial for this goal. However, the high dimensionality of molecular profiles compared to the limited number of samples presents significant challenges. Knowledge-based feature selection methods are particularly suitable for drug response prediction as they leverage biological insights to reduce dimensionality and enhance model interpretability. This study presents the first comparative evaluation of commonly used knowledge-based feature reduction methods using cell line and tumor data. Our findings indicate that transcription factor activities outperform other methods in predicting drug responses, effectively distinguishing between sensitive and resistant tumors for seven out of 20 drugs evaluated.
 
@@ -9,23 +9,32 @@ Personalized medicine aims to tailor medical treatments to individual patients, 
 
 In *R*
 ```
-
-
+glmnet(4.1.8)
+caret(6.0.94)
+keras(2.15.0)
+tensorflow(2.16.0)
+randomForest(4.7.1.1)
+progeny(1.24.0)
+reactome.db(1.86.2)
+sva(3.50.0)
+caTools(1.18.2)
+parallel(4.3.2)
 ```
 In *Python*
 
 ```
-
+decoupler
+pandas
 ```
 
 ### Run pipeline:
 
-In this work, we compare four different feature selection methods including
+In this work, we compare four different feature reduction methods including
 
-1. k
-2.
-3.
-4.
+1. Landmark genes
+2. Drug pathway genes
+3. Pathway activities
+4. TF activities
 
 together with five ML models including
 
