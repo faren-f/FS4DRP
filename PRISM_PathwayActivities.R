@@ -1,11 +1,11 @@
 rm(list=ls())
 
 library(caTools)
-source("../Functions/F1-Ridge.R")
-source("../Functions/F2-MLP.R")
-source("../Functions/F3-RandomForest.R")
-source("../Functions/F4-ENet.R")
-source("../Functions/F5-Lasso.R")
+source("../utilities/F1-Ridge.R")
+source("../utilities/F2-MLP.R")
+source("../utilities/F3-RandomForest.R")
+source("../utilities/F4-ENet.R")
+source("../utilities/F5-Lasso.R")
 
 sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
 pw_act_X = readRDS("../Data/pw_act_GE.rds")
