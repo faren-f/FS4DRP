@@ -7,7 +7,7 @@ source("../utilities/F3-RandomForest.R")
 source("../utilities/F4-ENet.R")
 source("../utilities/F5-Lasso.R")
 
-sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+sen = readRDS("../Data/Sen_PRISM.rds")
 pw_act_X = readRDS("../Data/pw_act_GE.rds")
 
 Models = c("RandomForest","ElasticNet", "Lasso","Ridge","MLP")

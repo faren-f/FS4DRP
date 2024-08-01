@@ -7,7 +7,7 @@ source("../utilities/F3-RandomForest.R")
 source("../utilities/F4-ENet.R")
 source("../utilities/F5-Lasso.R")
 
-sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+sen = readRDS("../Data/Sen_PRISM.rds")
 TF = read.table("../Data/TF_gsea_PRISM.csv", sep = ",",header = TRUE, row.names = 1)
 
 Models = c("RandomForest", "ElasticNet", "Lasso", "Ridge", "MLP")

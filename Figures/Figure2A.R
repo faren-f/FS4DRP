@@ -1,7 +1,7 @@
 rm(list=ls())
 library(ggplot2)
 
-sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+sen = readRDS("../Data/Sen_PRISM.rds")
 GE = readRDS("../Data/expresion_matrix.rds")
 N_drugs = 1448
 

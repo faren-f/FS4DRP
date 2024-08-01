@@ -4,7 +4,7 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM2.rds")
 res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
 dR_PRISM = read.table("../Dara/gsea_PRISM.csv",sep = ",",header = TRUE, row.names = 1)

@@ -4,10 +4,10 @@ library(parallel)
 no_cores = detectCores()
 cl = makeCluster(no_cores-2)
 
-sen_PRISM = readRDS("../Data/Sen_PRISM.rds")
+sen_PRISM = readRDS("../Data/Sen_PRISM2.rds")
 res_TCGA = readRDS("../Data/Res_TCGA.rds")
 
-GE_PRISM = readRDS("../Data/expresion_matrix.rds")
+GE_PRISM = readRDS("../Data/expresion_matrix_PRISM2.rds")
 GE_TCGA = readRDS("../Data/expresion_matrix_TCGA.rds")
 
 # Remove genes whose Q3 is zero

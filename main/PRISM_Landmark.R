@@ -7,7 +7,7 @@ source("../utilities/F3-RandomForest.R")
 source("../utilities/F4-ENet.R")
 source("../utilities/F5-Lasso.R")
 
-sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+sen = readRDS("../Data/Sen_PRISM.rds")
 GE = readRDS("../Data/expresion_matrix.rds")
 
 l1000_genes = readRDS("../Data/Landmark_genes.rds")

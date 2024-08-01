@@ -8,7 +8,7 @@ source("../utilities/F4-ENet.R")
 source("../utilities/F5-Lasso.R")
 source("../utilities/F6-Drug_Pathway_Level_genes.R")
 
-sen = readRDS("../Data/sensitivity_matrix_AUC.rds")
+sen = readRDS("../Data/Sen_PRISM.rds")
 GE = readRDS("../Data/expresion_matrix.rds")
 
 Models = c("RandomForest","ElasticNet", "Lasso","Ridge","MLP")
