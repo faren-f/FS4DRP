@@ -23,9 +23,10 @@ parallel(4.3.2)
 In *Python*
 
 ```
-decoupler
 pandas
+decoupler
 ```
+*hint:* While the main pipeline is implemented in *R*, the *Python* packages are required to implement transcription factor activists only.
 
 ### Run pipeline:
 
