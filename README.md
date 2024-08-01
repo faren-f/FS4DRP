@@ -28,7 +28,7 @@ decoupler
 ```
 *hint:* While the main pipeline is implemented in *R*, the *Python* packages are required to implement transcription factor activists only.
 
-### Run pipeline:
+### Perform analysis:
 
 In this work, we compare four different feature reduction methods including
 
