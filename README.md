@@ -32,6 +32,15 @@ decoupler
 
 ### Perform analysis:
 
+In the following, the step-by-step instructions to run the pipeline and obtain the results are described:
+
+1. *Download raw data.* See [here](data/raw_data/README.md)
+2. *Data preprocessing:* Run the scripts in ```data_preprocessing``` folder, in order, to preprocess the gene expression and drug response data for PRISM and TCGA.
+3. *Main analysis*: Run the scripts in ```main``` folder to train and test ML models and save the results. See below for details.
+4. *Visualise:* To obtain the figures in the main manuscript, run the scripts in ```figures``` folder.
+
+#### Main analysis:
+
 In this work, we compare four different feature reduction methods including
 
 1. Landmark genes
@@ -54,13 +63,8 @@ Our analysis consists of two scenarios:
 **2. Validation on tumour samples.** In this scenario, train and test sets for ML models are obtained from cell line data (PRISM dataset) and tumor data (TCGA dataset), respectively. The script names for this analysis follow the pattern ```TrainPRISM_TestTCGA_{feature_selection_method}.R```.
 
 
-*hint:* The above mentioned scripts can be found in the ```main``` folder.
-
-In the following, the step-by-step instructions to run the pipline and obtain the results are described:
-
-1. *Download raw data.* see [here](data/raw_data/README.md)
-2. *data_preprocessing:*
-
+---
+Reference: tba
 
 
 
